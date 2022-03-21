@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Random Quote Machine</title>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!--Javascript-->
+        <script>
+            const QUOTES = [
+                {
+                    quote: "Carry out a random act of kindness, with no expectation of reward, safe in the knowledge that one day someone might do the same for you.",
+                    author: "Princess Diana"
+                },
+                {
+                    quote: "Everything happening around me is very random. I am enjoying the phase, as the journey is far more enjoyable than the destination.",
+                    author: "Sushant Singh Rajput"
+                },
+                {
+                    quote: "Together we can change the world, just one random act of kindness at a time.",
+                    author: "Ron Hall"
+                },
+                {
+                    quote: "Someone that you obviously can trust and someone that you would trust your life with - that's a really good friend.",
+                    author: "Ron Hall"
+                },
+                {
+                    quote: "I believe life is an intelligent thing: that things aren't random.",
+                    author: "Steve Jobs"
+                },
+                {
+                    quote: "Maybe life is random, but I doubt it.",
+                    author: "Steven Tyler"
+                },
+                {
+                    quote: "In all natural disasters through time, man needs to attach meaning to tragedy, no matter how random and inexplicable the event is.",
+                    author: "Nathaniel Philbrick"
+                },
+                {
+                    quote: "Random chance plays a huge part in everybody's life.",
+                    author: "Gary Gygax"
+                },
+                {
+                    quote: "None of us wants to be reminded that dementia is random, relentless, and frighteningly common.",
+                    author: "Laurie Graham"
+                },
+                {
+                    quote: "Caves are whimsical things, and geology on a local scale is random and unpredictable.",
+                    author: "William Stone"
+                },
+                {
+                    quote: "The amount of random conversations that lead to culture-shifting ideas is insane.",
+                    author: "Virgil Abloh"
+                },
+                {
+                    quote: "Self-control means wanting to be effective at some random point in the infinite radiations of my spiritual existence.",
+                    author: "Franz Kafka"
+                },
+                {
+                    quote: "I'm not engaged in predicting random number generators. I actually get phone calls from people who want to know what lottery numbers are going to win. I don't have a clue.",
+                    author: "Bruce Bueno de Mesquita"
+                },
+                {
+                    quote: "With police wielding unprecedented powers to invade privacy, tap phones and conduct searches seemingly at random, our civil liberties are in a very precarious condition.",
+                    author: "Walter Cronkite"
+                },
+                {
+                    quote: "A random rumor that did a rounds about me was that I am an actor who throws tantrums on the sets and likes to be treated like a King. Which is false.",
+                    author: "Ravi Kishan"
+                },
+                {
+                    quote: "My whole career has been completely random and haphazard.",
+                    author: "Cillian Murphy"
+                },             
+            ];
+
+            
+            window.onload = init;
+            function init() {
+                generateQuote();        
+            };
+
+            function generateQuote() {
+                let quoteSize = QUOTES.length;
+                let randomIndex = Math.floor(Math.random() * quoteSize);
+                let randomQuoteData = QUOTES[randomIndex];
+
+                let twitterLink = "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=%22Everything%20has%20beauty%2C%20but%20not%20everyone%20can%20see.%22%20Confucius";
+
+                // Add The Quote
+                let quoteInApiFormat = randomQuoteData.quote.replace(/ /g, "%20");
+                twitterLink += quoteInApiFormat;
+                // Add The Author
+                let authorInApiFormat = randomQuoteData.author.replace(/ /g, "%20");
+                twitterLink += " - " + authorInApiFormat;
+
+                document.getElementById("tweet-quote").href = twitterLink;
+                document.getElementById("text").innerText = randomQuoteData.quote;  
+                document.getElementById("author").innerText = randomQuoteData.author;
+            };
+        </script>  
+
+     
+    </head>
+
+    <body>
+        <div class="container">
+           <div id="quote-box">
+               <div class="card">
+                   <div class="card-body">
+                     <h5 class="card-title">
+                       <div id="text"></div>
+                     </h5>
+                     <p class="card-text">
+                       <div id="author"></div>
+                     </p>
+                     <button id="new-quote" onclick="generateQuote();" class="btn btn-success">New Quote</button>
+                     <a href="#" id="tweet-quote" target="_blank" class="btn btn-primary">Tweet Quote</a>
+                   </div>
+               </div>
+           </div>
+        </div>
+
+        <h3>by davvoh</h3>
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
