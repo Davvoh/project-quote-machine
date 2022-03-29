@@ -1,4 +1,4 @@
 # project-quote-machine
-Random quote machine project.
+FreeCodeCamp's Front End Development Libraries Project : Random Quote Machine
 
 This project is made with HTML, Javascript & Bootstrap.
